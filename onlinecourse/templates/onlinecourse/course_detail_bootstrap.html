@@ -64,6 +64,39 @@
             -->
 
             <!-- <HINT> If user is authenticated, show course exam with a list of question -->
+            <button data-toggle="collapse" data-target="#exam", class="btn btn-primary btn-block">Start Exam</button>
+            <div id="exam" class="collapse">
+                {% if user.is_authenticated %}
+
+                  <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
+                      {% csrf_token %}
+                      <div class="card-columns-vertical">
+                          {% for questions in course.question_set.all %}
+                              <div class="card mt-1">
+                                  <div class="card-header"><h5>{{questions.content}}</h5></div>
+                                  {% for choices in questions.choice_set.all %}
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="choice_{{choices.id}}" id="{{choices.id}}" value="{{choices.id}}"/>
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        <!-- {{choices.id}} -->
+                                        {{choices}}
+                                      </label>
+                                  </div>
+                                  {% endfor %}
+                              </div>
+                          {% endfor %}
+                      </div>
+                      <input class="btn btn-success btn-block" type="submit" value="Submit">
+                </form>
+            </div>
+
+                {% else %}
+
+            <div class="container">
+            <p>authenticate</p>
+            </div>
+            {% endif %}
+            </div>
 
             <!-- <HINT> Each example will have many questions -->
 
@@ -75,8 +108,8 @@
             <input type="check" name="choice_{{choice.id}}" id="{{choice.id}}" ...>
             -->
 
-            <!-- A choice submission form example
-            <form id="questionform" action="point to a submit view" method="post">
+            <!-- A choice submission form example -->
+            <!-- <form id="questionform" action="point to a submit view" method="post">
                         ... for each question in the course ...
                         <div class="card mt-1">
                             <div class="card-header"><h5>{{ question.question_text}}</h5></div>
