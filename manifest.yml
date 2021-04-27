@@ -1,11 +1,11 @@
   applications:
   - name: onlinecourse
     routes:
-      - route: enry_pl9.eu-gb.mybluemix.net
+      - route: enry_7hl.eu-gb.cf.appdomain.cloud
     memory: 128M
     buildpack: python_buildpack
   - name: onlinecourse-nginx
     routes:
-      - route: enry_pl9.eu-gb.mybluemix.net/static
+      - route: enry_7hl.eu-gb.cf.appdomain.cloud/static
     memory: 128M
     buildpack: staticfile_buildpack

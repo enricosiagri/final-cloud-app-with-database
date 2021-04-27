@@ -28,7 +28,7 @@ DEBUG = True
 
 # <HINT> add your cloud host here
 ALLOWED_HOSTS = [
-    'enry_pl9.eu-gb.mybluemix.net'
+    'enry_7hl.eu-gb.cf.appdomain.cloud'
 ]
 
 
