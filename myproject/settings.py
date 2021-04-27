@@ -28,7 +28,7 @@ DEBUG = True
 
 # <HINT> add your cloud host here
 ALLOWED_HOSTS = [
-    'enry_p3d.eu-gb.cf.appdomain.cloud'
+    'enry0ol.eu-gb.cf.appdomain.cloud'
 ]
 
 
